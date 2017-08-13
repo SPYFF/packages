@@ -18,10 +18,11 @@ PKG_NAME:=shadowsocks-libev-nocrypto
 PKG_VERSION:=3.0.8
 PKG_RELEASE:=1
 
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_PROTO:=git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/spyff/shadowsocks-libev-nocrypto.git
-PKG_REV:=nocrypto
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_VERSION:=3360662de0f589878444de2414319331b76b9377
 
 PKG_MAINTAINER:=Ferenc Fejes <primalgamer@gmail.com>
 
