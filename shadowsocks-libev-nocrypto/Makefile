@@ -58,7 +58,7 @@ define Package/shadowsocks-libev-nocrypto/Default
     SECTION:=net
     CATEGORY:=Network
     SUBMENU:=Web Servers/Proxies
-    TITLE:=shadowsocks-libev-nocrypto $(1)
+    TITLE:=shadowsocks-libev-nocrypto-$(1)
     URL:=https://github.com/spyff/shadowsocks-libev-nocrypto
     DEPENDS:=+libev +libmbedtls +libpcre +libpthread +libsodium +libudns +shadowsocks-libev-config +zlib
   endef
@@ -76,7 +76,7 @@ define shadowsocks-libev-nocrypto/templates
     $(call Package/shadowsocks-libev-nocrypto/Default,$(component))
   )
 endef
-$(eval $(call shadowsocks-libev/templates))
+$(eval $(call shadowsocks-libev-nocrypto/templates))
 
 
 define Package/shadowsocks-libev-ss-rules
@@ -125,5 +125,5 @@ CONFIGURE_ARGS += \
 $(eval $(call BuildPackage,shadowsocks-libev-config))
 $(eval $(call BuildPackage,shadowsocks-libev-ss-rules))
 $(foreach component,$(SHADOWSOCKS_COMPONENTS), \
-  $(eval $(call BuildPackage,shadowsocks-libev-$(component))) \
+  $(eval $(call BuildPackage,shadowsocks-libev-nocrypto-$(component))) \
 )
