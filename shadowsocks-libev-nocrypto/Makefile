@@ -71,7 +71,7 @@ define Package/shadowsocks-libev-nocrypto/Default
 endef
 
 SHADOWSOCKS_COMPONENTS:=ss-local ss-redir ss-tunnel ss-server
-define shadowsocks-libev/templates
+define shadowsocks-libev-nocrypto/templates
   $(foreach component,$(SHADOWSOCKS_COMPONENTS),
     $(call Package/shadowsocks-libev-nocrypto/Default,$(component))
   )
