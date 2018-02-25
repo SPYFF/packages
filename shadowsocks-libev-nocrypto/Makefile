@@ -15,14 +15,14 @@ include $(TOPDIR)/rules.mk
 # - check if ss-rules has been upstreamed
 #
 PKG_NAME:=shadowsocks-libev-nocrypto
-PKG_VERSION:=3.1.3
+PKG_VERSION:=3.0.8
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/spyff/shadowsocks-libev-nocrypto.git
-PKG_SOURCE_VERSION:=83945324fcd41e61b433de46ee91c458529b90da
+PKG_SOURCE_VERSION:=8139502d4128fb11cf68e120082141b29f4a582b
 
 PKG_MAINTAINER:=Ferenc Fejes <primalgamer@gmail.com>
 
