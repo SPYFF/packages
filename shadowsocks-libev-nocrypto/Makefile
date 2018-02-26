@@ -105,7 +105,6 @@ CONFIGURE_ARGS += \
 	--disable-assert \
 	--disable-ssp \
 
-$(eval $(call BuildPackage,shadowsocks-libev-config))
 $(eval $(call BuildPackage,shadowsocks-libev-ss-rules))
 $(foreach component,$(SHADOWSOCKS_COMPONENTS), \
   $(eval $(call BuildPackage,shadowsocks-libev-nocrypto-$(component))) \
