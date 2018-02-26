@@ -1,5 +1,5 @@
 # The original version of this package from:
-# Copyright (C) 2017 Yousong Zhou <yszhou4tech@gmail.com>
+# Copyright (C) 2017-2018 Yousong Zhou <yszhou4tech@gmail.com>
 # Modified it for Shadowsocks-libev with optional crypto:
 # Ferenc Fejes <primalgamer@gmail.com>
 #
@@ -36,6 +36,21 @@ PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
+define Package/shadowsocks-libev-config
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Web Servers/Proxies
+  TITLE:=shadowsocks-libev config scripts
+  URL:=https://github.com/shadowsocks/shadowsocks-libev
+endef
+
+define Package/shadowsocks-libev-config/install
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_DATA) ./files/shadowsocks-libev.config $(1)/etc/config/shadowsocks-libev
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/shadowsocks-libev.init $(1)/etc/init.d/shadowsocks-libev
+endef
+
 define Package/shadowsocks-libev-nocrypto/Default
   define Package/shadowsocks-libev-nocrypto-$(1)
     SECTION:=net
@@ -43,7 +58,7 @@ define Package/shadowsocks-libev-nocrypto/Default
     SUBMENU:=Web Servers/Proxies
     TITLE:=shadowsocks-libev-nocrypto-$(1)
     URL:=https://github.com/spyff/shadowsocks-libev-nocrypto
-    DEPENDS:=+libev +libmbedtls +libpcre +libpthread +libsodium +libudns +shadowsocks-libev-config +zlib +libcares
+    DEPENDS:=+libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib
   endef
 
   define Package/shadowsocks-libev-nocrypto-$(1)/install
@@ -68,7 +83,7 @@ define Package/shadowsocks-libev-ss-rules
   SUBMENU:=Web Servers/Proxies
   TITLE:=shadowsocks-libev ss-rules
   URL:=https://github.com/shadowsocks/shadowsocks-libev
-  DEPENDS:=+ip +ipset +iptables-mod-tproxy +shadowsocks-libev-ss-redir +shadowsocks-libev-config +libcares
+  DEPENDS:=+ip +ipset +iptables-mod-tproxy +resolveip +shadowsocks-libev-ss-redir +shadowsocks-libev-config
 endef
 
 define Package/shadowsocks-libev-ss-rules/install
