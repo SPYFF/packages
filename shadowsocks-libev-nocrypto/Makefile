@@ -36,23 +36,6 @@ PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-
-define Package/shadowsocks-libev-config
-  SECTION:=net
-  CATEGORY:=Network
-  SUBMENU:=Web Servers/Proxies
-  TITLE:=shadowsocks-libev config scripts
-  URL:=https://github.com/shadowsocks/shadowsocks-libev
-endef
-
-define Package/shadowsocks-libev-config/install
-	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_DATA) ./files/shadowsocks-libev.config $(1)/etc/config/shadowsocks-libev
-	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/shadowsocks-libev.init $(1)/etc/init.d/shadowsocks-libev
-endef
-
-
 define Package/shadowsocks-libev-nocrypto/Default
   define Package/shadowsocks-libev-nocrypto-$(1)
     SECTION:=net
